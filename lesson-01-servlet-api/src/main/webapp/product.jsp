@@ -1,3 +1,5 @@
+<%@ page import="ru.geekbrains.persist.Product" %>
+<%@ page import="java.util.List" %>
 <!doctype html>
 <html lang="en">
 
@@ -35,7 +37,7 @@
 <div class="container">
     <div class="row py-2">
         <div class="col-12">
-            <a class="btn btn-primary" href="user_form.html">Add User</a>
+            <a class="btn btn-primary" href="user_form.html">Add Product</a>
         </div>
 
         <div class="col-12">
@@ -43,19 +45,21 @@
                 <thead>
                 <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">Username</th>
+                    <th scope="col">Name</th>
                     <th scope="col">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
+                <% for (Product product : (List<Product>) request.getAttribute("products")) { %>
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Alex</td>
+                    <th scope="row"><%=product.getId()%></th>
+                    <td><%=product.getName() %></td>
                     <td>
-                        <a class="btn btn-success" href="user_form.html"><i class="fas fa-edit"></i></a>
+                        <a class="btn btn-success" href="<%=product.getId()%>"><i class="fas fa-edit"></i></a>
                         <a class="btn btn-danger" href="#"><i class="far fa-trash-alt"></i></a>
                     </td>
                 </tr>
+                <% } %>
                 </tbody>
             </table>
         </div>
