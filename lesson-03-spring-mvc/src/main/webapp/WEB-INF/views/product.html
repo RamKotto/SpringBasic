@@ -1,7 +1,5 @@
-<%@ page import="ru.geekbrains.persist.Product" %>
-<%@ page import="java.util.List" %>
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <!-- Required meta tags -->
@@ -37,7 +35,7 @@
 <div class="container">
     <div class="row py-2">
         <div class="col-12">
-            <a class="btn btn-primary" href="user_form.html">Add Product</a>
+            <a class="btn btn-primary" th:href="@{/product/new}">Add Product</a>
         </div>
 
         <div class="col-12">
@@ -50,16 +48,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                <% for (Product product : (List<Product>) request.getAttribute("products")) { %>
-                <tr>
-                    <th scope="row"><%=product.getId()%></th>
-                    <td><%=product.getName() %></td>
+                <tr th:each="product : ${products}">
+                    <th scope="row" th:text="${product.id}">1</th>
+                    <td th:text="${product.name}">Alex</td>
                     <td>
-                        <a class="btn btn-success" href="?id=<%=product.getId()%>"><i class="fas fa-edit"></i></a>
+                        <a class="btn btn-success" th:href="@{/product/{id}(id = ${product.id})}"><i class="fas fa-edit"></i></a>
                         <a class="btn btn-danger" href="#"><i class="far fa-trash-alt"></i></a>
                     </td>
                 </tr>
-                <% } %>
                 </tbody>
             </table>
         </div>
