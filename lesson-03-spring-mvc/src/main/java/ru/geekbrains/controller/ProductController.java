@@ -27,13 +27,14 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public String edit(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("product", productRepository.findById(id));
+        model.addAttribute("product", productRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Product not found")));
         return "product_form";
     }
 
     @GetMapping("/new")
     public String create(Model model) {
-        // TODO model.addAttribute("product", ?????);
+        model.addAttribute("product", new Product());
         return "product_form";
     }
 
