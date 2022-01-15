@@ -24,6 +24,6 @@ public class Config {
     @Bean
     @Scope("prototype")                   // При обращении к бину - получаем каждый раз нвоый экземпляр
     public CartService cartService() {
-        return new CartService();
+        return new CartService(productRepository());
     }
 }

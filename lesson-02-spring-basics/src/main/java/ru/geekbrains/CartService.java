@@ -5,23 +5,46 @@ import ru.geekbrains.persist.Product;
 import ru.geekbrains.persist.ProductRepository;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CartService {
-    private List<Product> productCart = new ArrayList<>();
 
-    @Autowired
+    private Map<Product, Integer> productCount;
+
     private ProductRepository productRepository;
 
-    public void putProductById(long id) {
-        productCart.add(productRepository.findById(id));
+    @Autowired
+    public CartService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+        this.productCount = new HashMap<>();
     }
 
-    public List<Product> getCart() {
-        return productCart;
+    public void addProduct(long id, int count) {
+        Product product = getProductById(id);
+        productCount.merge(product, count, Integer::sum);
     }
 
-    public void removeFromCartById(long id) {
-        productCart.remove(productRepository.findById(id));
+    public void removeProduct(long id, int count) {
+        Product product = getProductById(id);
+        Integer curr = productCount.get(product);
+        if (curr <= count) {
+            productCount.remove(product);
+        } else {
+            productCount.merge(product, -count, Integer::sum);
+        }
+    }
+
+    public List<Product> getAll() {
+        return new ArrayList<>(productCount.keySet());
+    }
+
+    private Product getProductById(long id) {
+        Product product = productRepository.findById(id);
+        if (product == null) {
+            throw new IllegalArgumentException("Prodict with id:" + id + " is not exists");
+        }
+        return product;
     }
 }

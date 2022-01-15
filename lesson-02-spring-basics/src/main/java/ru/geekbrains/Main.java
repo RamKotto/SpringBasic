@@ -25,32 +25,32 @@ public class Main {
 
         System.out.println(productService.count());
 
-        cartServiceOne.putProductById(1);
-        cartServiceOne.putProductById(2);
-        cartServiceTwo.putProductById(3);
-        cartServiceTwo.putProductById(4);
-        cartServiceTwo.putProductById(5);
-
-        for (Product product : cartServiceOne.getCart()) {
-            System.out.println("Cart one: " + product.getName());
-        }
-
-        for (Product product : cartServiceTwo.getCart()) {
-            System.out.println("Cart two: " + product.getName());
-        }
-
-        cartServiceOne.removeFromCartById(1);
-        cartServiceOne.removeFromCartById(2);
-        cartServiceTwo.removeFromCartById(3);
-        cartServiceTwo.removeFromCartById(4);
-        cartServiceTwo.removeFromCartById(5);
-
-        if (cartServiceOne.getCart().size() <= 0) {
-            System.out.println("cartServiceOne is empty");
-        }
-
-        if (cartServiceOne.getCart().size() <= 0) {
-            System.out.println("cartServiceTwo is empty");
-        }
+//        cartServiceOne.putProductById(1);
+//        cartServiceOne.putProductById(2);
+//        cartServiceTwo.putProductById(3);
+//        cartServiceTwo.putProductById(4);
+//        cartServiceTwo.putProductById(5);
+//
+//        for (Product product : cartServiceOne.getCart()) {
+//            System.out.println("Cart one: " + product.getName());
+//        }
+//
+//        for (Product product : cartServiceTwo.getCart()) {
+//            System.out.println("Cart two: " + product.getName());
+//        }
+//
+//        cartServiceOne.removeFromCartById(1);
+//        cartServiceOne.removeFromCartById(2);
+//        cartServiceTwo.removeFromCartById(3);
+//        cartServiceTwo.removeFromCartById(4);
+//        cartServiceTwo.removeFromCartById(5);
+//
+//        if (cartServiceOne.getCart().size() <= 0) {
+//            System.out.println("cartServiceOne is empty");
+//        }
+//
+//        if (cartServiceOne.getCart().size() <= 0) {
+//            System.out.println("cartServiceTwo is empty");
+//        }
     }
 }
