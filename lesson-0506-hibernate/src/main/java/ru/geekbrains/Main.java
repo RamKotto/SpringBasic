@@ -23,7 +23,7 @@ public class Main {
 //        entityManager.getTransaction().begin();
 //
 //        // внесение данных в таблицу
-//        entityManager.persist(new User(null, "Maria", "pass"));
+//        entityManager.persist(new User(null, "Luntik", "pass"));
 //
 //        // закрываем транзакцию
 //        entityManager.getTransaction().commit();
@@ -31,7 +31,7 @@ public class Main {
 
         // SELECT
 //        System.out.println("User:");
-//        User user = entityManager.find(User.class, 1L);
+//        User user = entityManager.find(User.class, 4L);
 //        System.out.println(user);
 //
 //        System.out.println("Users:");
@@ -55,11 +55,11 @@ public class Main {
 //        System.out.println(user);
 
         // UPDATE 2
-//        User user = new User(1L, "Mike", "passwordForMike");
+//        User user = new User(4L, "Mike", "passwordForMike");
 //        entityManager.getTransaction().begin();
 //        entityManager.merge(user);
 //        entityManager.getTransaction().commit();
-//        user = entityManager.find(User.class, 1L);
+//        user = entityManager.find(User.class, 4L);
 //        System.out.println(user);
 
         // UPDATE 3
@@ -80,13 +80,13 @@ public class Main {
 //        entityManager.getTransaction().commit();
 
         // DELETE 2
-        entityManager.getTransaction().begin();
-
-        entityManager.createQuery("delete from User where id = :id")
-                .setParameter("id", 1L)
-                .executeUpdate();
-
-        entityManager.getTransaction().commit();
+//        entityManager.getTransaction().begin();
+//
+//        entityManager.createQuery("delete from User where id = :id")
+//                .setParameter("id", 1L)
+//                .executeUpdate();
+//
+//        entityManager.getTransaction().commit();
 
 
         entityManager.close();
