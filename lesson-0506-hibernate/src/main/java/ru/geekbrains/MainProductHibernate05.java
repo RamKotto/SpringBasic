@@ -12,7 +12,7 @@ public class MainProductHibernate05 {
         productRepository.init();
 
         Product productOne = new Product(null,
-                "aaa", "Mi", new BigDecimal("123.4444"));
+                "MyProduct", "Mi", new BigDecimal("123.4444"));
         Product createdProd = productRepository.saveOrUpdate(productOne);
 
         productRepository.deleteById(createdProd.getId());
