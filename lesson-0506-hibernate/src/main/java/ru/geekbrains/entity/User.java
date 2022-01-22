@@ -1,6 +1,7 @@
 package ru.geekbrains.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -15,6 +16,10 @@ public class User {
 
     @Column(nullable = false)
     private String password;
+
+    // mappedBy = "user" указывает на то, что это двусторонняя связь
+    @OneToMany(mappedBy = "user")
+    private List<Contact> contacts;
 
     public User() {
     }
@@ -47,6 +52,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Contact> getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(List<Contact> contacts) {
+        this.contacts = contacts;
     }
 
     @Override

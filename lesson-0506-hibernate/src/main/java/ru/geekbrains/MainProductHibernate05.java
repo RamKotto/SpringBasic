@@ -6,7 +6,7 @@ import ru.geekbrains.persist.ProductRepositoryImpl;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class HomeWorkHibernate {
+public class MainProductHibernate05 {
     public static void main(String[] args) {
         ProductRepositoryImpl productRepository = new ProductRepositoryImpl();
         productRepository.init();

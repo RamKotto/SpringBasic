@@ -1,14 +1,11 @@
 package ru.geekbrains;
 
 import org.hibernate.cfg.Configuration;
-import ru.geekbrains.entity.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Query;
-import java.util.List;
 
-public class Main {
+public class Main05 {
 
     public static void main(String[] args) {
         // потокобезопасный
