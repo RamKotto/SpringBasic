@@ -19,7 +19,7 @@ public class User {
 
     // mappedBy = "user" указывает на то, что это двусторонняя связь
     // cascade = {CascadeType.PERSIST, CascadeType.PERSIST, CascadeType.REMOVE} см INSERT 2 из Main06
-    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.PERSIST})
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Contact> contacts;
 
     public User() {

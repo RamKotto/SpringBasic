@@ -36,7 +36,7 @@ public class Main06 {
         // INSERT 2
         entityManager.getTransaction().begin();
 
-        User user = entityManager.find(User.class, 1L);
+        User user = entityManager.find(User.class, 2L);
         user.getContacts().add(
                 new Contact(null, "Home address", "New-York, St-Pier street, 123/2", user)
         );
