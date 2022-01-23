@@ -23,6 +23,7 @@
         <mapping class="ru.geekbrains.entity.User"/>
         <mapping class="ru.geekbrains.entity.Product"/>
         <mapping class="ru.geekbrains.entity.Contact"/>
+        <mapping class="ru.geekbrains.entity.Role" />
     </session-factory>
 
 </hibernate-configuration>

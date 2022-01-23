@@ -61,4 +61,15 @@ public class Contact {
     public void setUser(User user) {
         this.user = user;
     }
+
+    // чтобы не было зацикливания, не выводим юзера, а выводим его ID и имя
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "id=" + id +
+                ", type='" + type + '\'' +
+                ", contactText='" + contactText + '\'' +
+                ", user = id:" + user.getId() + " " + user.getUsername() +
+                '}';
+    }
 }
