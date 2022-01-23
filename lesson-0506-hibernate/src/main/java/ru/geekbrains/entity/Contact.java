@@ -23,10 +23,11 @@ public class Contact {
     public Contact() {
     }
 
-    public Contact(Long id, String type, String contactText) {
+    public Contact(Long id, String type, String contactText, User user) {
         this.id = id;
         this.type = type;
         this.contactText = contactText;
+        this.user = user;
     }
 
     public Long getId() {
